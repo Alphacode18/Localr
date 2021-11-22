@@ -18,7 +18,7 @@ echo "done"
 
 echo "Installing necessary packages for benchmarks..."
 pypy3 -m pip install jinja2
-pypy3 -m pip install python-igraph
+pypy3 -m pip install igraph
 echo "done"
 
 echo "Running all benchmarks..."
