@@ -7,7 +7,7 @@ from jinja2 import Template
 
 SCRIPT_DIR = path.abspath(path.join(path.dirname(__file__)))
 
-def handler(event, iteration):
+def handler(event, iteration, run):
 
     name = event.get('username')
     size = event.get('random_len')
@@ -18,7 +18,7 @@ def handler(event, iteration):
     html = template.render(username = name, cur_time = cur_time, random_numbers = random_numbers)
     end = datetime.now()
     # dump stats 
-    with open('/vagrant/benchmark-results/110.dynamic-html_result.csv', 'a') as f:
+    with open(f'/vagrant/benchmark-results/110.dynamic-html_result_{run}.csv', 'a') as f:
       f.writelines(f"{iteration},{(end - start).microseconds}\n")
     return {'result': html}
 

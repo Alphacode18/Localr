@@ -1,7 +1,7 @@
 import datetime
 import igraph
 
-def handler(event, iteration):
+def handler(event, iteration, run):
 
     size = event.get('size')
 
@@ -15,7 +15,7 @@ def handler(event, iteration):
 
     graph_generating_time = (graph_generating_end - graph_generating_begin) / datetime.timedelta(microseconds=1)
     process_time = (process_end - process_begin) / datetime.timedelta(microseconds=1)
-    with open('/vagrant/benchmark-results/503.graphs-bfs_result.csv', 'a') as f:
+    with open(f'/vagrant/benchmark-results/503.graphs-bfs_result_{run}.csv', 'a') as f:
       f.writelines(f"{iteration},{process_time}\n")
     return {
             'result': result,
