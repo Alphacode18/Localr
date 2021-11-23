@@ -13,7 +13,7 @@ echo "done"
 echo "Running all benchmarks..."
 for benchmark in /vagrant/benchmarks/*
 do
-    for run in {1..10}
+    for run in {1..5}
     do
         pypy3 ${benchmark}/init.py $run
     done
