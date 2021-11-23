@@ -18,7 +18,7 @@ def handler(event, iteration, run):
     html = template.render(username = name, cur_time = cur_time, random_numbers = random_numbers)
     end = datetime.now()
     # dump stats 
-    with open(f'/vagrant/benchmark-results/110.dynamic-html_result_{run}.csv', 'a') as f:
+    with open(f'/vagrant/benchmark-results/110.dynamic-html/110.dynamic-html_result_{run}.csv', 'a') as f:
       f.writelines(f"{iteration},{(end - start).microseconds}\n")
     return {'result': html}
 
