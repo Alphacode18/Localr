@@ -15,7 +15,7 @@ def handler(event, iteration):
 
     graph_generating_time = (graph_generating_end - graph_generating_begin) / datetime.timedelta(microseconds=1)
     process_time = (process_end - process_begin) / datetime.timedelta(microseconds=1)
-    with open('502.graph-mst_result.csv', 'a') as f:
+    with open('/vagrant/benchmark-results/502.graph-mst_result.csv', 'a') as f:
       f.writelines(f"{iteration},{process_time}\n")
     return {
             'result': result[0],
