@@ -11,7 +11,7 @@ def handler(event, iteration):
     url = event.get('object').get('url')
     client = event.get('object').get('client')
     name = os.path.basename(url)
-    download_path = '/tmp/{}'.format(name)
+    download_path = './images/{}'.format(name)
 
     process_begin = datetime.datetime.now()
     urllib.request.urlretrieve(url, filename=download_path)

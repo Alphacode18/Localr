@@ -18,6 +18,6 @@ def generate_input():
     input_config['object']['client'] = client
     return input_config
 
-for iteration in range(0, 10):
+for iteration in range(0, 1000):
   input_conf = generate_input()
   handler(input_conf, iteration)
