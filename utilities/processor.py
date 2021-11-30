@@ -12,9 +12,11 @@ for iteration in range(file_count):
         frames.append(df)
 
 median_list = []
-for i in range(0, 1000):
-    median_list.append([i, median([frames[0]['time'][i], frames[1]['time'][i], 
-    frames[2]['time'][i], frames[3]['time'][i], frames[4]['time'][i]])])
+for i in range(0, 5000):
+    time = []
+    for j in range(0, 500):
+        time.append(frames[j]['time'][i])
+    median_list.append([i, median(time)])
 
 median_df = pd.DataFrame(median_list, columns=["request", "time"])
 
