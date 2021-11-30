@@ -6,10 +6,9 @@ def buckets_count():
 def generate_input(data_dir, input_buckets, output_buckets, upload_func):
     for file in glob.glob(os.path.join(data_dir, '*.fasta')):
         data = os.path.relpath(file, data_dir)
-        file_name = upload_func(input_buckets[0], data, file)
+        upload_func(input_buckets[0], data, file)
     input_config = {'object': {}, 'bucket': {}}
     input_config['object']['key'] = data
-    input_config['object']['file_name'] = file_name
     input_config['bucket']['input'] = input_buckets[0]
     input_config['bucket']['output'] = output_buckets[0]
     return input_config

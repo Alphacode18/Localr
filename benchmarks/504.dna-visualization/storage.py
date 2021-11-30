@@ -17,14 +17,10 @@ class storage:
                 secret_key=secret_key,
                 secure=False)
 
+    # Instigates overwriting, saves space, and reduces complexity
     @staticmethod
     def unique_name(name):
-        name, extension = name.split('.')
-        return '{name}.{random}.{extension}'.format(
-                    name=name,
-                    extension=extension,
-                    random=str(uuid.uuid4()).split('-')[0]
-                )
+        return name
 
     def upload(self, bucket, file, filepath):
         key_name = storage.unique_name(file)
