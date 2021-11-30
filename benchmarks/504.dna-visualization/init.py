@@ -8,23 +8,18 @@ store = storage()
 client = store.client
 ROOT_DIR = os.path.abspath("../..")
 
-dup_guard = client.bucket_exists("504.dna-visualization-in")
-if not dup_guard:
-  client.make_bucket("504.dna-visualization-in")
-dup_guard = client.bucket_exists("504.dna-visualization-out")
-if not dup_guard:
-  client.make_bucket("504.dna-visualization-out")
+client.make_bucket("504.dna-visualization-in")
+client.make_bucket("504.dna-visualization-out")
 
 def cleanup(bucket, object_name):
   client.remove_object(bucket, object_name)
-  client.remove_bucket(bucket)
 
-for iteration in range(0, 1):
+for iteration in range(0, 1000):
   input_conf = generate_input(data_dir=os.path.join(ROOT_DIR, "benchmarks", "data", "504.dna-visualization"),
                               input_buckets=["504.dna-visualization-in"],
                               output_buckets=["504.dna-visualization-out"],
                               upload_func=store.upload)
   input_conf['object']['store'] = store
-  handler(input_conf)
+  handler(iteration, input_conf)
   cleanup("504.dna-visualization-in", input_conf['object']['key'])
   cleanup("504.dna-visualization-out", input_conf['object']['key'])

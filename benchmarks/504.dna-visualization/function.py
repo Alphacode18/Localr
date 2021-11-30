@@ -1,7 +1,7 @@
 import datetime, io, json
 from squiggle import transform
 
-def handler(event):
+def handler(iteration, event):
     input_bucket = event.get('bucket').get('input')
     output_bucket = event.get('bucket').get('output')
     key = event.get('object').get('key')
@@ -26,6 +26,9 @@ def handler(event):
 
     download_time = (download_stop - download_begin) / datetime.timedelta(microseconds=1)
     process_time = (process_end - process_begin) / datetime.timedelta(microseconds=1)
+
+    with open(f'504.dna-visualization_result.csv', 'a') as f:
+      f.writelines(f"{iteration},{process_time}\n")
 
     return {
             'result': {
