@@ -1,19 +1,16 @@
 import datetime, io, json
-# using https://squiggle.readthedocs.io/en/latest/
 from squiggle import transform
 
-from . import storage
-client = storage.storage.get_instance()
-
 def handler(event):
-
     input_bucket = event.get('bucket').get('input')
     output_bucket = event.get('bucket').get('output')
     key = event.get('object').get('key')
+    store = event.get('object').get('store')
+    file_name = event.get('object').get('file_name')
     download_path = '/tmp/{}'.format(key)
 
     download_begin = datetime.datetime.now()
-    client.download(input_bucket, key, download_path)
+    store.download(input_bucket, file_name, download_path)
     download_stop = datetime.datetime.now()
     data = open(download_path, "r").read()
 
@@ -24,7 +21,7 @@ def handler(event):
     upload_begin = datetime.datetime.now()
     buf = io.BytesIO(json.dumps(result).encode())
     buf.seek(0)
-    key_name = client.upload_stream(output_bucket, key, buf)
+    key_name = store.upload_stream(output_bucket, key, buf)
     upload_stop = datetime.datetime.now()
     buf.close()
 
