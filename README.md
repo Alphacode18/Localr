@@ -23,7 +23,7 @@
   <h3 align="center">Localr</h3>
 
   <p align="center">
-    An end-to-end pipeline to run, process and visualize benchmarks locally.
+    An end-to-end pipeline to run, process and visualize serverless benchmarks locally.
     <br />
     <a href="#"><strong>Explore the docs »</strong></a>
     <br />
