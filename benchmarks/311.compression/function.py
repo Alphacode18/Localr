@@ -13,7 +13,7 @@ def parse_directory(directory):
             size += os.path.getsize(os.path.join(root, file))
     return size
 
-def handler(event):
+def handler(iteration, event):
   
     input_bucket = event.get('bucket').get('input')
     output_bucket = event.get('bucket').get('output')
@@ -40,7 +40,8 @@ def handler(event):
     download_time = (s3_download_stop - s3_download_begin) / datetime.timedelta(microseconds=1)
     upload_time = (s3_upload_stop - s3_upload_begin) / datetime.timedelta(microseconds=1)
     process_time = (compress_end - compress_begin) / datetime.timedelta(microseconds=1)
-    print(process_time)
+    with open(f'311.compression_processed.csv', 'a') as f:
+      f.writelines(f"{iteration},{process_time}\n")
     return {
             'result': {
                 'bucket': output_bucket,

@@ -83,7 +83,7 @@ def handler(iteration, event):
     download_time = (download_stop - download_begin) / datetime.timedelta(microseconds=1)
     upload_time = (upload_stop - upload_begin) / datetime.timedelta(microseconds=1)
     process_time = (process_end - process_begin) / datetime.timedelta(microseconds=1)
-    with open(f'220.uploader_processed.csv', 'a') as f:
+    with open(f'220.video-processing.csv', 'a') as f:
       f.writelines(f"{iteration},{process_time}\n")
     return {
             'result': {
