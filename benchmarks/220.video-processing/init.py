@@ -8,8 +8,11 @@ store = storage()
 client = store.client
 ROOT_DIR = os.path.abspath("../..")
 
-client.make_bucket("220.video-processing-in")
-client.make_bucket("220.video-processing-out")
+if (client.bucket_exists("220.video-processing-in") == False ):
+  client.make_bucket("220.video-processing-in")
+
+if (client.bucket_exists("220.video-processing-out") == False ):
+  client.make_bucket("220.video-processing-out")
 
 def cleanup(bucket, object_name):
   client.remove_object(bucket, object_name)

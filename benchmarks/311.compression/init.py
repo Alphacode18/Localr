@@ -8,8 +8,11 @@ store = storage()
 client = store.client
 ROOT_DIR = os.path.abspath("../..")
 
-client.make_bucket("311.compression-in")
-client.make_bucket("311.compression-out")
+if (client.bucket_exists("311.compression-in") == False ):
+  client.make_bucket("311.compression-in")
+
+if (client.bucket_exists("311.compression-out") == False ):
+  client.make_bucket("311.compression-out")
 
 def cleanup(bucket, object_name):
   client.remove_object(bucket, object_name)

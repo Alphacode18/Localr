@@ -8,8 +8,11 @@ store = storage()
 client = store.client
 ROOT_DIR = os.path.abspath("../..")
 
-client.make_bucket("504.dna-visualization-in")
-client.make_bucket("504.dna-visualization-out")
+if (client.bucket_exists("504.dna-visualization-in") == False ):
+  client.make_bucket("504.dna-visualization-in")
+
+if (client.bucket_exists("504.dna-visualization-out") == False ):
+  client.make_bucket("504.dna-visualization-out")
 
 def cleanup(bucket, object_name):
   client.remove_object(bucket, object_name)

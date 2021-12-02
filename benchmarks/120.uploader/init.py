@@ -8,7 +8,8 @@ store = storage()
 client = store.client
 ROOT_DIR = os.path.abspath("../..")
 
-client.make_bucket("120.uploader")
+if (client.bucket_exists("120.uploader")) == False:
+  client.make_bucket("120.uploader")
 
 def cleanup(bucket, object_name):
   client.remove_object(bucket, object_name)
