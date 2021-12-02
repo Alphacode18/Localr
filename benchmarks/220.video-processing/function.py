@@ -47,7 +47,7 @@ def transcode_mp3(video, duration, event):
 
 operations = { 'transcode' : transcode_mp3, 'extract-gif' : to_gif, 'watermark' : watermark }
 
-def handler(iteration, event):
+def handler(iteration, event, run):
     input_bucket = event.get('bucket').get('input')
     output_bucket = event.get('bucket').get('output')
     key = event.get('object').get('key')
@@ -83,7 +83,7 @@ def handler(iteration, event):
     download_time = (download_stop - download_begin) / datetime.timedelta(microseconds=1)
     upload_time = (upload_stop - upload_begin) / datetime.timedelta(microseconds=1)
     process_time = (process_end - process_begin) / datetime.timedelta(microseconds=1)
-    with open(f'220.video-processing.csv', 'a') as f:
+    with open(f'/vagrant/benchmark-results/220.video-processing/220.video-processing_result_{run}.csv', 'a') as f:
       f.writelines(f"{iteration},{process_time}\n")
     return {
             'result': {

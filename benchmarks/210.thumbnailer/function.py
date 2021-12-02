@@ -11,7 +11,7 @@ def resize_image(image_bytes, w, h):
         out.seek(0)
         return out
 
-def handler(iteration, event):
+def handler(iteration, event, run):
   
     input_bucket = event.get('bucket').get('input')
     output_bucket = event.get('bucket').get('output')
@@ -36,7 +36,7 @@ def handler(iteration, event):
     download_time = (download_end - download_begin) / datetime.timedelta(microseconds=1)
     upload_time = (upload_end - upload_begin) / datetime.timedelta(microseconds=1)
     process_time = (process_end - process_begin) / datetime.timedelta(microseconds=1)
-    with open(f'210.thumbnailer_result.csv', 'a') as f:
+    with open(f'/vagrant/benchmark-results/210.thumbnailer/210.thumbnailer_result_{run}.csv', 'a') as f:
       f.writelines(f"{iteration},{process_time}\n")
     return {
             'result': {
