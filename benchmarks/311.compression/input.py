@@ -13,15 +13,6 @@ def upload_files(data_root, data_dir, upload_func, input_bucket):
             filepath = os.path.join(root, file)
             upload_func(input_bucket, file_name, filepath)
 
-'''
-    Generate test, small and large workload for compression test.
-
-    :param data_dir: directory where benchmark data is placed
-    :param size: workload size
-    :param input_buckets: input storage containers for this benchmark
-    :param output_buckets:
-    :param upload_func: upload function taking three params(bucket_idx, key, filepath)
-'''
 def generate_input(data_dir, input_buckets, output_buckets, upload_func):
 
     datasets = []

@@ -13,7 +13,7 @@ def parse_directory(directory):
             size += os.path.getsize(os.path.join(root, file))
     return size
 
-def handler(iteration, event):
+def handler(iteration, event, run):
   
     input_bucket = event.get('bucket').get('input')
     output_bucket = event.get('bucket').get('output')
@@ -40,7 +40,7 @@ def handler(iteration, event):
     download_time = (s3_download_stop - s3_download_begin) / datetime.timedelta(microseconds=1)
     upload_time = (s3_upload_stop - s3_upload_begin) / datetime.timedelta(microseconds=1)
     process_time = (compress_end - compress_begin) / datetime.timedelta(microseconds=1)
-    with open(f'311.compression_processed.csv', 'a') as f:
+    with open(f'/vagrant/benchmark-results/311.compression/311.compression_result_{run}.csv', 'a') as f:
       f.writelines(f"{iteration},{process_time}\n")
     return {
             'result': {
