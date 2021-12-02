@@ -27,6 +27,10 @@ echo "Starting Minio server"
 sudo docker run -d -p 9000:9000 -p 9001:9001 minio/minio server /data --console-address ":9001"
 echo "done"
 
+echo "Ensuring all services are started and running..."
+sleep 1m
+echo "done"
+
 echo "Running all benchmarks..."
 for benchmark in /vagrant/benchmarks/*
 do

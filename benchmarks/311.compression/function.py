@@ -40,7 +40,7 @@ def handler(iteration, event, run):
     download_time = (s3_download_stop - s3_download_begin) / datetime.timedelta(microseconds=1)
     upload_time = (s3_upload_stop - s3_upload_begin) / datetime.timedelta(microseconds=1)
     process_time = (compress_end - compress_begin) / datetime.timedelta(microseconds=1)
-    with open(f'/vagrant/benchmark-results/311.compression/311.compression_result_{run}.csv', 'a') as f:
+    with open(f'/vagrant/results/runs/311.compression/311.compression_result_{run}.csv', 'a') as f:
       f.writelines(f"{iteration},{process_time}\n")
     return {
             'result': {

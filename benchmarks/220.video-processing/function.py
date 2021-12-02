@@ -83,7 +83,7 @@ def handler(iteration, event, run):
     download_time = (download_stop - download_begin) / datetime.timedelta(microseconds=1)
     upload_time = (upload_stop - upload_begin) / datetime.timedelta(microseconds=1)
     process_time = (process_end - process_begin) / datetime.timedelta(microseconds=1)
-    with open(f'/vagrant/benchmark-results/220.video-processing/220.video-processing_result_{run}.csv', 'a') as f:
+    with open(f'/vagrant/results/runs/220.video-processing/220.video-processing_result_{run}.csv', 'a') as f:
       f.writelines(f"{iteration},{process_time}\n")
     return {
             'result': {

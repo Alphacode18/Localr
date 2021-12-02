@@ -27,7 +27,7 @@ def handler(iteration, event, run):
     download_time = (download_stop - download_begin) / datetime.timedelta(microseconds=1)
     process_time = (process_end - process_begin) / datetime.timedelta(microseconds=1)
 
-    with open(f'/vagrant/benchmark-results/504.dna-visualization/504.dna-visualization_result_{run}.csv', 'a') as f:
+    with open(f'/vagrant/results/runs/504.dna-visualization/504.dna-visualization_result_{run}.csv', 'a') as f:
       f.writelines(f"{iteration},{process_time}\n")
 
     return {
