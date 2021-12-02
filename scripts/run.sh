@@ -24,7 +24,7 @@ sudo docker pull minio/minio
 echo "done"
 
 echo "Starting Minio server"
-sudo docker run -p 9000:9000 -p 9001:9001 minio/minio server /data --console-address ":9001"
+sudo docker run -d -p 9000:9000 -p 9001:9001 minio/minio server /data --console-address ":9001"
 echo "done"
 
 echo "Running all benchmarks..."
