@@ -20,4 +20,4 @@ for i in range(0, 5000):
 
 median_df = pd.DataFrame(median_list, columns=["request", "time"])
 
-median_df.to_csv(f"../processed-results/{sys.argv[1]}_processed.csv", encoding='utf-8', index=False)
+median_df.to_csv(f"../results/processed/{sys.argv[1]}_processed.csv", encoding='utf-8', index=False)

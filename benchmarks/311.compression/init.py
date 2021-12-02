@@ -14,7 +14,7 @@ client.make_bucket("311.compression-out")
 def cleanup(bucket, object_name):
   client.remove_object(bucket, object_name)
 
-for iteration in range(0, 2500):
+for iteration in range(0, 10):
   input_conf = generate_input(data_dir=os.path.join(ROOT_DIR, "benchmarks", "data", "311.compression"),
                               input_buckets=["311.compression-in"],
                               output_buckets=["311.compression-out"],
