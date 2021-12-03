@@ -13,6 +13,7 @@ def handler(event, iteration, run):
     size = event.get('random_len')
     start = datetime.now()
     cur_time = datetime.now()
+    #TODO: Establish seed for deterministic runs
     random_numbers = sample(range(0, 1000000), size)
     template = Template( open(path.join(SCRIPT_DIR, 'templates', 'template.html'), 'r').read())
     html = template.render(username = name, cur_time = cur_time, random_numbers = random_numbers)
