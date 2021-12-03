@@ -1,8 +1,10 @@
 *.cbx linguist-detectable=false
+*.cls linguist-detectable=false
 *.bbx linguist-detectable=false
 *.bst linguist-detectable=false
 *.dbx linguist-detectable=false
 *.dtx linguist-detectable=false
+*.ins linguist-detectable=false
 *.pdf linguist-detectable=false
 *.png linguist-detectable=false
 *.dtx linguist-detectable=false
