@@ -17,7 +17,7 @@ if (client.bucket_exists("210.thumbnailer-out") == False ):
 def cleanup(bucket, object_name):
   client.remove_object(bucket, object_name)
 
-for iteration in range(0, 10):
+for iteration in range(0, 2500):
   input_conf = generate_input(data_dir="/vagrant/benchmarks/data/210.thumbnailer",
                               input_buckets=["210.thumbnailer-in"],
                               output_buckets=["210.thumbnailer-out"],

@@ -17,7 +17,7 @@ if (client.bucket_exists("220.video-processing-out") == False ):
 def cleanup(bucket, object_name):
   client.remove_object(bucket, object_name)
 
-for iteration in range(0, 10):
+for iteration in range(0, 2500):
   input_conf = generate_input(data_dir="/vagrant/benchmarks/data/220.video-processing",
                               input_buckets=["220.video-processing-in"],
                               output_buckets=["220.video-processing-out"],

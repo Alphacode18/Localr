@@ -12,7 +12,7 @@ for iteration in range(file_count):
         frames.append(df)
 
 median_list = []
-for i in range(0, 10):
+for i in range(0, 2500):
     time = []
     for j in range(0, 20):
         time.append(frames[j]['time'][i])
