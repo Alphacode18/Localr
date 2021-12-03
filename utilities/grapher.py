@@ -3,10 +3,10 @@ import pandas as pd
 
 import matplotlib.pyplot as plt
 
-processed_df = pd.read_csv(f"../results/processed-results/{sys.argv[1]}_processed.csv")
+processed_df = pd.read_csv(f"../results/processed/{sys.argv[1]}_processed.csv")
 
 df = pd.DataFrame({
-      'x_axis': range(0, 1000),
+      'x_axis': range(0, 10),
       'y_axis': processed_df["time"]
 })
 

@@ -1,16 +1,16 @@
-#!/bin/bash
+# #!/bin/bash
 
-PROJ_DIR=$(pwd)/..
+# PROJ_DIR=$(pwd)/..
 
-for benchmark_path in $PROJ_DIR/benchmarks/*
-do
-    benchmark=$(echo $benchmark_path | cut -d "/" -f 11)
-    if [[ "$benchmark" != *"data"* && "$benchmark" != *"dna"* ]]; then
-        mkdir -p $PROJ_DIR/results/runs/$benchmark
-    fi
-done
+# for benchmark_path in $PROJ_DIR/benchmarks/*
+# do
+#     benchmark=$(echo $benchmark_path | cut -d "/" -f 11)
+#     if [[ "$benchmark" != *"data"* && "$benchmark" != *"dna"* ]]; then
+#         mkdir -p $PROJ_DIR/results/runs/$benchmark
+#     fi
+# done
 
-vagrant up
+# vagrant up
 
 for benchmark_path in $PROJ_DIR/results/runs/*
 do

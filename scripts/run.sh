@@ -2,6 +2,8 @@
 
 echo "Installing package management utilities for PyPy3..."
 sudo snap install pypy3 --classic
+sudo apt update
+sudo apt install ffmpeg -y
 echo "done"
 
 echo "Installing necessary packages for benchmarks..."
@@ -32,10 +34,13 @@ sleep 1m
 echo "done"
 
 echo "Running all benchmarks..."
-for benchmark in /vagrant/benchmarks/*
+for benchmark_path in /vagrant/benchmarks/*
 do
-    for run in {1..20}
-    do
-        pypy3 ${benchmark}/init.py $run
-    done
+    benchmark=$(echo $benchmark_path | cut -d "/" -f 4)
+    if [[ "$benchmark" != *"data"* && "$benchmark" != *"dna"* ]]; then
+        for run in {1..20}
+        do
+            pypy3 ${benchmark_path}/init.py $run
+        done
+    fi
 done

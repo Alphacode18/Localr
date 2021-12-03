@@ -3,3 +3,4 @@
 *.csv
 benchmarks/*/ffmpeg
 benchmarks/*/__pycache__/
+*.jpeg

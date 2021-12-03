@@ -8,8 +8,7 @@ import subprocess
 SCRIPT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__)))
 
 def call_ffmpeg(args):
-    ret = subprocess.call([os.path.join(SCRIPT_DIR, 'ffmpeg', 'ffmpeg'), '-y'] + args,
-            # #subprocess might inherit Lambda's input for some reason
+    ret = subprocess.call(['ffmpeg', '-y'] + args,
             stdin=subprocess.DEVNULL,
             stdout=subprocess.PIPE, stderr=subprocess.STDOUT
     )
