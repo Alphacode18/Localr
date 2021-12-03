@@ -7,3 +7,4 @@
 *.png linguist-detectable=false
 *.dtx linguist-detectable=false
 *.bib linguist-detectable=false
+*.tex linguist-detectable=false
