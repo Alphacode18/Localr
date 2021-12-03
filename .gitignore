@@ -1,2 +1,6 @@
 .vagrant
 .DS_Store
+*.csv
+benchmarks/*/ffmpeg
+benchmarks/*/__pycache__/
+*.jpeg
