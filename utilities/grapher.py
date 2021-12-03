@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 processed_df = pd.read_csv(f"../results/processed/{sys.argv[1]}_processed.csv")
 
 df = pd.DataFrame({
-      'x_axis': range(0, 10),
+      'x_axis': range(0, 2500),
       'y_axis': processed_df["time"]
 })
 
