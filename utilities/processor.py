@@ -14,7 +14,7 @@ for iteration in range(file_count):
 median_list = []
 for i in range(0, 2500):
     time = []
-    for j in range(0, 20):
+    for j in range(0, 25):
         time.append(frames[j]['time'][i])
     median_list.append([i, median(time)])
 
