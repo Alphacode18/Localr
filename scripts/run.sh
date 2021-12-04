@@ -38,7 +38,7 @@ for benchmark_path in /vagrant/benchmarks/*
 do
     benchmark=$(echo $benchmark_path | cut -d "/" -f 4)
     if [[ "$benchmark" != *"data"* && "$benchmark" != *"dna"* ]]; then
-        for run in {1..20}
+        for run in {1..25}
         do
             pypy3 ${benchmark_path}/init.py $run
         done
